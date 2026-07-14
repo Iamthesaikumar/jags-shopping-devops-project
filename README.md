@@ -1,4 +1,4 @@
-# 🛒 Static web application – End-to-End DevOps Deployment on AWS
+# 🛒 Jags Shopping – End-to-End DevOps Deployment on AWS
 
 <p align="center">
 
@@ -14,28 +14,24 @@
 
 # 📖 Project Overview
 
-This project demonstrates an **end-to-end DevOps deployment** of a static web application on **Amazon Web Services (AWS)**.
+This project demonstrates an **end-to-end deployment** of the **Jags Shopping** web application on **Amazon Web Services (AWS)**.
 
-The application is:
+The application is containerized using **Docker**, stored securely in **Amazon Elastic Container Registry (Amazon ECR)**, deployed to **Amazon Elastic Kubernetes Service (Amazon EKS)**, and exposed to users using a **Kubernetes Service of type LoadBalancer**.
 
-- Containerized using Docker
-- Stored in Amazon Elastic Container Registry (ECR)
-- Deployed to Amazon Elastic Kubernetes Service (EKS)
-- Exposed using Kubernetes Service (LoadBalancer)
-- Upgraded using the Rolling Update deployment strategy
+The project also demonstrates a **Rolling Update Deployment Strategy**, where the application is upgraded from **Version 1** to **Version 2** without downtime.
 
-This project simulates a real-world DevOps deployment workflow from application development to production deployment.
+This project simulates a real-world DevOps deployment workflow from application development to deployment on Kubernetes.
 
 ---
 
 # 🎯 Project Objectives
 
-- Build a Docker image for a web application.
-- Push the Docker image to Amazon ECR.
-- Deploy the application to Amazon EKS.
-- Expose the application using Kubernetes Service.
-- Perform Rolling Updates with zero downtime.
-- Understand Kubernetes Deployments, ReplicaSets, Pods, Services, and Load Balancers.
+- Containerize the Jags Shopping web application using Docker.
+- Store Docker images in Amazon Elastic Container Registry (Amazon ECR).
+- Deploy the application to Amazon Elastic Kubernetes Service (Amazon EKS).
+- Expose the application using a Kubernetes Service.
+- Perform a Rolling Update from Version 1 to Version 2.
+- Understand the complete DevOps deployment lifecycle on AWS.
 
 ---
 
@@ -43,16 +39,16 @@ This project simulates a real-world DevOps deployment workflow from application 
 
 | Category | Technology |
 |-----------|------------|
-| Cloud | Amazon Web Services (AWS) |
+| Cloud Provider | Amazon Web Services (AWS) |
 | Compute | Amazon EC2 |
 | Containerization | Docker |
-| Container Registry | Amazon Elastic Container Registry (ECR) |
-| Container Orchestration | Amazon Elastic Kubernetes Service (EKS) |
+| Container Registry | Amazon Elastic Container Registry (Amazon ECR) |
+| Container Orchestration | Amazon Elastic Kubernetes Service (Amazon EKS) |
 | Web Server | NGINX |
-| Programming | HTML |
+| Programming Language | HTML |
 | Kubernetes Objects | Deployment, ReplicaSet, Pods, Service |
 | Deployment Strategy | Rolling Update |
-| CLI Tools | Docker CLI, kubectl, AWS CLI |
+| CLI Tools | Docker CLI, AWS CLI, kubectl |
 
 ---
 
@@ -62,31 +58,34 @@ This project simulates a real-world DevOps deployment workflow from application 
                     Developer
                         │
                         ▼
-                 Docker Build
+                Develop Jags Shopping
                         │
                         ▼
-                 Docker Image
+                  Docker Build
                         │
                         ▼
-        Amazon Elastic Container Registry
+                  Docker Image
                         │
                         ▼
-        Amazon Elastic Kubernetes Service
+ Amazon Elastic Container Registry (ECR)
                         │
                         ▼
-                 Kubernetes Deployment
+ Amazon Elastic Kubernetes Service (EKS)
                         │
                         ▼
-                   ReplicaSet
+            Kubernetes Deployment
                         │
                         ▼
-                     Pods (2)
+                  ReplicaSet
                         │
                         ▼
-          Kubernetes Service (LoadBalancer)
+                     Pods
                         │
                         ▼
-           AWS Elastic Load Balancer (ELB)
+      Kubernetes Service (LoadBalancer)
+                        │
+                        ▼
+      AWS Elastic Load Balancer (ELB)
                         │
                         ▼
                      End Users
@@ -98,59 +97,58 @@ This project simulates a real-world DevOps deployment workflow from application 
 
 ## Phase 1 – Docker
 
-- Created project directory
-- Developed HTML application
-- Created Dockerfile
-- Built Docker Image (Version 1)
-- Ran Docker Container
-- Verified the application locally
+- Created the project directory.
+- Developed the Jags Shopping web application.
+- Created the Dockerfile.
+- Built Docker Image (Version 1).
+- Created and tested the Docker container.
 
 ---
 
 ## Phase 2 – Amazon ECR
 
-- Created Amazon ECR Repository
-- Logged in to Amazon ECR
-- Tagged Docker Image
-- Pushed Docker Image to Amazon ECR
+- Created an Amazon ECR repository.
+- Logged in to Amazon ECR.
+- Tagged the Docker image.
+- Pushed Version 1 image to Amazon ECR.
 
 ---
 
 ## Phase 3 – Amazon EKS
 
-- Created Amazon EKS Cluster
-- Installed kubectl
-- Connected kubectl to EKS
-- Created Deployment
-- Created ReplicaSet
-- Created Pods
-- Created Kubernetes Service
+- Created an Amazon EKS cluster.
+- Installed kubectl.
+- Connected kubectl to the EKS cluster.
+- Created Kubernetes Deployment.
+- Created ReplicaSet.
+- Created Pods.
+- Created Kubernetes Service.
 
 ---
 
 ## Phase 4 – Application Deployment
 
-- AWS automatically provisioned an Elastic Load Balancer
-- Accessed the application using the ELB endpoint
-- Verified Version 1 deployment
+- AWS automatically provisioned an Elastic Load Balancer.
+- Accessed the application using the ELB endpoint.
+- Verified Version 1 deployment successfully.
 
 ---
 
 ## Phase 5 – Rolling Update
 
-- Modified the application to Version 2
-- Built Docker Image (Version 2)
-- Pushed Version 2 image to Amazon ECR
-- Updated Kubernetes Deployment
-- Kubernetes created a new ReplicaSet
-- Old Pods were terminated automatically
-- Version 2 deployed successfully without downtime
+- Modified the application to Version 2.
+- Built Docker Image (Version 2).
+- Tagged and pushed Version 2 image to Amazon ECR.
+- Updated the Kubernetes Deployment.
+- Kubernetes automatically created a new ReplicaSet.
+- Old Pods were terminated automatically.
+- Version 2 was deployed successfully without downtime.
 
 ---
 
 # 📂 Repository Structure
 
-```
+```text
 jags-shopping-devops-project
 
 ├── README.md
@@ -175,13 +173,13 @@ jags-shopping-devops-project
 
 # 📋 Kubernetes Objects Used
 
-| Object | Purpose |
-|---------|----------|
-| Deployment | Manages application deployment |
-| ReplicaSet | Maintains desired number of Pods |
-| Pod | Runs the application |
-| Service | Provides a stable endpoint |
-| LoadBalancer | Exposes the application to the Internet |
+| Kubernetes Object | Purpose |
+|-------------------|----------|
+| Deployment | Manages the application deployment |
+| ReplicaSet | Maintains the desired number of Pods |
+| Pod | Runs the application container |
+| Service | Provides a stable endpoint to access the application |
+| LoadBalancer | Exposes the application to external users |
 
 ---
 
@@ -225,29 +223,29 @@ Version 2 Running Successfully
 
 The Screenshots folder contains:
 
-- Docker Image Build
+- Project Setup
+- Docker Build
 - Docker Container
-- Amazon ECR
+- Amazon ECR Repository
 - Amazon EKS Cluster
-- Deployment
-- Service
-- Load Balancer
-- Rolling Update
+- Kubernetes Deployment
+- Kubernetes Service
+- AWS Load Balancer
 - Version 1 Output
-- Version 2 Output
+- Version 2 Rolling Update
 
 ---
 
 # 📚 Key Learning Outcomes
 
-Through this project I gained practical experience in:
+Through this project I gained hands-on experience with:
 
 - Docker Image Creation
 - Docker Container Deployment
 - Amazon EC2
-- Amazon ECR
-- Amazon EKS
-- Kubernetes Deployment
+- Amazon Elastic Container Registry (Amazon ECR)
+- Amazon Elastic Kubernetes Service (Amazon EKS)
+- Kubernetes Deployments
 - ReplicaSets
 - Pods
 - Kubernetes Services
@@ -257,32 +255,15 @@ Through this project I gained practical experience in:
 
 ---
 
-# 🚀 Future Enhancements
-
-This project can be extended with:
-
-- Jenkins CI/CD Pipeline
-- GitHub Actions
-- Helm Charts
-- Ingress Controller
-- ConfigMaps
-- Kubernetes Secrets
-- Horizontal Pod Autoscaler (HPA)
-- Prometheus & Grafana Monitoring
-- Centralized Logging
-- Terraform
-
----
-
 # 💡 Challenges Faced
 
 During this project I learned how to troubleshoot and resolve:
 
 - Docker installation issues
-- ECR authentication errors
+- Amazon ECR authentication issues
 - kubectl configuration
 - Kubernetes Deployment errors
-- Incorrect image versions
+- Image version updates
 - Service exposure
 - Browser cache after Rolling Updates
 - ReplicaSet updates
@@ -291,9 +272,24 @@ During this project I learned how to troubleshoot and resolve:
 
 # 📖 Lessons Learned
 
-This project helped me understand the complete DevOps workflow from application development to deployment on Kubernetes.
+This project helped me understand the complete DevOps deployment lifecycle by deploying the **Jags Shopping** web application using Docker, Amazon ECR, Amazon EKS, Kubernetes Deployments, ReplicaSets, Pods, Services, and the Rolling Update strategy.
 
-I gained practical knowledge of Docker, Amazon ECR, Amazon EKS, Kubernetes Deployments, Services, ReplicaSets, Pods, and Rolling Updates through hands-on implementation.
+---
+
+# 🚀 Future Enhancements
+
+In the next version of this project, I plan to implement:
+
+- Jenkins CI/CD Pipeline
+- GitHub Actions
+- Helm Charts
+- Kubernetes ConfigMaps
+- Kubernetes Secrets
+- Ingress Controller
+- Horizontal Pod Autoscaler (HPA)
+- Prometheus & Grafana Monitoring
+- Centralized Logging
+- Terraform
 
 ---
 
@@ -307,11 +303,11 @@ Currently learning:
 
 - Docker
 - Kubernetes
-- AWS
+- Amazon Web Services (AWS)
 - Terraform
 - Jenkins
 - DevOps
 
 ---
 
-⭐ If you found this repository useful, please consider giving it a Star.
+⭐ Thank you for visiting this repository.
