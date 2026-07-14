@@ -72,3 +72,67 @@ AWS Elastic Load Balancer
      ▼
 Users
 ```
+---
+
+# 🚀 Project Workflow
+
+This project demonstrates the complete application deployment lifecycle on AWS.
+
+```text
+Step 1
+Create HTML Application
+        │
+        ▼
+Step 2
+Create Dockerfile
+        │
+        ▼
+Step 3
+Build Docker Image (v1)
+        │
+        ▼
+Step 4
+Run Docker Container
+        │
+        ▼
+Step 5
+Push Docker Image to Amazon ECR
+        │
+        ▼
+Step 6
+Deploy Application to Amazon EKS
+        │
+        ▼
+Step 7
+Create Kubernetes Service (LoadBalancer)
+        │
+        ▼
+Step 8
+AWS Creates Elastic Load Balancer
+        │
+        ▼
+Step 9
+Access Application from Browser
+        │
+        ▼
+Step 10
+Modify Application to Version 2
+        │
+        ▼
+Step 11
+Build Docker Image (v2)
+        │
+        ▼
+Step 12
+Push Version 2 to Amazon ECR
+        │
+        ▼
+Step 13
+Update Kubernetes Deployment
+        │
+        ▼
+Step 14
+Rolling Update Completed Successfully
+```
+
+---
