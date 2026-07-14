@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: jags-deployment
+
+spec:
+  replicas: 2
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+
+  selector:
+    matchLabels:
+      app: jags-shopping
+
+  template:
+    metadata:
+      labels:
+        app: jags-shopping
+
+    spec:
+      containers:
+      - name: jags-container
+        image: 674113923535.dkr.ecr.us-east-2.amazonaws.com/jags-shopping:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
