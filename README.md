@@ -1,4 +1,4 @@
-# 🛒 static web application – End-to-End DevOps Deployment on AWS
+# 🛒 Static web application – End-to-End DevOps Deployment on AWS
 
 <p align="center">
 
