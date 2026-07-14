@@ -20,3 +20,55 @@ The project also demonstrates a **Rolling Update Deployment Strategy** by upgrad
 - Understand the complete application deployment lifecycle on AWS.
 
 ---
+# 🛠️ Technologies Used
+
+| Category | Technology |
+|----------|------------|
+| Cloud Provider | Amazon Web Services (AWS) |
+| Compute | Amazon EC2 |
+| Containerization | Docker |
+| Container Registry | Amazon Elastic Container Registry (ECR) |
+| Container Orchestration | Amazon Elastic Kubernetes Service (EKS) |
+| Web Server | NGINX |
+| Programming Language | HTML |
+| Kubernetes Objects | Deployment, ReplicaSet, Pods, Service |
+| Deployment Strategy | Rolling Update |
+| CLI Tools | Docker CLI, kubectl, AWS CLI |
+
+---
+
+# 🏗️ Project Architecture
+
+```text
+Developer
+     │
+     ▼
+Docker Build
+     │
+     ▼
+Docker Image
+     │
+     ▼
+Amazon ECR
+     │
+     ▼
+Amazon EKS
+     │
+     ▼
+Deployment
+     │
+     ▼
+ReplicaSet
+     │
+     ▼
+Pods
+     │
+     ▼
+Service (LoadBalancer)
+     │
+     ▼
+AWS Elastic Load Balancer
+     │
+     ▼
+Users
+```
