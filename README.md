@@ -1,4 +1,4 @@
-# 🛒 Jags Shopping – End-to-End DevOps Deployment on AWS
+# 🛒 static web application – End-to-End DevOps Deployment on AWS
 
 <p align="center">
 
